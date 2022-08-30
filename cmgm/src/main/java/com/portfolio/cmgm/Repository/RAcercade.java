@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RAcercade extends JpaRepository<Acercade, Integer>{
-    public Optional<Acercade> findByDescripcionA(String descripcionA);
-    public boolean existsByDescripcionA(String descripcionA);
+    public Optional<Acercade> findByTituloA(String tituloA);
+    public boolean existsByTituloA(String tituloA);
 }

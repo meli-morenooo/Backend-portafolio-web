@@ -26,8 +26,8 @@ public class SAcercade {
         return rAcercade.findById(id);
     }
     
-    public Optional<Acercade> getByDescripcionA(String descripcionA){
-        return rAcercade.findByDescripcionA(descripcionA);
+    public Optional<Acercade> getByTituloA(String tituloA){
+        return rAcercade.findByTituloA(tituloA);
     }
     
     public void save(Acercade acerd){
@@ -42,7 +42,7 @@ public class SAcercade {
         return rAcercade.existsById(id);
     }
     
-    public boolean existsByDescripcionA(String descripcionA){
-        return rAcercade.existsByDescripcionA(descripcionA);
+    public boolean existsByTituloA(String tituloA){
+        return rAcercade.existsByTituloA(tituloA);
     }
 }

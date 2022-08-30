@@ -58,14 +58,14 @@ public class CAcercade {
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoAcercade dtoacercad) {
-        if (StringUtils.isBlank(dtoacercad.getDescripcionA())) {
+        if (StringUtils.isBlank(dtoacercad.getTituloA())) {
             return new ResponseEntity(new Mensaje("El espacio no debe ir en blanco"), HttpStatus.BAD_REQUEST);
         }
-        if (sAcercade.existsByDescripcionA(dtoacercad.getDescripcionA())) {
-            return new ResponseEntity(new Mensaje("Ese proyecto existe"), HttpStatus.BAD_REQUEST);
+        if (sAcercade.existsByTituloA(dtoacercad.getTituloA())) {
+            return new ResponseEntity(new Mensaje("Este titulo existe"), HttpStatus.BAD_REQUEST);
         }
 
-        Acercade acercade = new Acercade(dtoacercad.getDescripcionA());
+        Acercade acercade = new Acercade(dtoacercad.getTituloA(), dtoacercad.getDescripcionA());
         sAcercade.save(acercade);
         return new ResponseEntity(new Mensaje("Información agregada"), HttpStatus.OK);
     }
@@ -75,7 +75,7 @@ public class CAcercade {
         if (!sAcercade.existsById(id)) {
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        if (sAcercade.existsByDescripcionA(dtoacercad.getDescripcionA()) && sAcercade.getByDescripcionA(dtoacercad.getDescripcionA()).get().getId() != id) {
+        if (sAcercade.existsByTituloA(dtoacercad.getTituloA()) && sAcercade.getByTituloA(dtoacercad.getTituloA()).get().getId() != id) {
             return new ResponseEntity(new Mensaje("Esa información ya existe"), HttpStatus.BAD_REQUEST);
         }
         if (StringUtils.isBlank(dtoacercad.getDescripcionA())) {
@@ -83,6 +83,7 @@ public class CAcercade {
         }
 
         Acercade acercade = sAcercade.getOne(id).get();
+        acercade.setTituloA(dtoacercad.getTituloA());
         acercade.setDescripcionA(dtoacercad.getDescripcionA());
 
         sAcercade.save(acercade);

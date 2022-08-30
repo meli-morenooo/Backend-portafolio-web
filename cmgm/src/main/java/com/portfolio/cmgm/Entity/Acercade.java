@@ -14,13 +14,15 @@ public class Acercade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String tituloA;
     private String descripcionA;
     
     // Contructor
     public Acercade() {
     }
 
-    public Acercade(String descripcionA) {
+    public Acercade(String tituloA, String descripcionA) {
+        this.tituloA = tituloA;
         this.descripcionA = descripcionA;
     }
     
@@ -31,6 +33,14 @@ public class Acercade {
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public String getTituloA() {
+        return tituloA;
+    }
+
+    public void setTituloA(String tituloA) {
+        this.tituloA = tituloA;
     }
 
     public String getDescripcionA() {

@@ -13,6 +13,7 @@ public class dtoEducacion {
     @NotBlank
     private String descripcionE;
 
+    // Constructor
     public dtoEducacion() {
     }
 
@@ -21,6 +22,7 @@ public class dtoEducacion {
         this.descripcionE = descripcionE;
     }
 
+    // Getter and Setter
     public String getNombreE() {
         return nombreE;
     }

@@ -9,17 +9,28 @@ import javax.validation.constraints.NotBlank;
 
 public class dtoAcercade {
     @NotBlank
+    private String tituloA;
+    @NotBlank
     private String descripcionA;
     
     // Constructor
     public dtoAcercade() {
     }
 
-    public dtoAcercade(String descripcionA) {
+    public dtoAcercade(String tituloA, String descripcionA) {
+        this.tituloA = tituloA;
         this.descripcionA = descripcionA;
     }
     
     // Getter and Setter
+    public String getTituloA() {
+        return tituloA;
+    }
+
+    public void setTituloA(String tituloA) {
+        this.tituloA = tituloA;
+    }
+        
     public String getDescripcionA() {
         return descripcionA;
     }
